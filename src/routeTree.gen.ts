@@ -9,14 +9,48 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TripsRouteImport } from './routes/trips'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PackingRouteImport } from './routes/packing'
 import { Route as MyTripsRouteImport } from './routes/my-trips'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as LandingRouteImport } from './routes/landing'
 import { Route as ItineraryBuilderRouteImport } from './routes/itinerary-builder'
 import { Route as ItineraryRouteImport } from './routes/itinerary'
+import { Route as InvoiceRouteImport } from './routes/invoice'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CreateTripRouteImport } from './routes/create-trip'
+import { Route as BuildItineraryRouteImport } from './routes/build-itinerary'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TripsRoute = TripsRouteImport.update({
+  id: '/trips',
+  path: '/trips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackingRoute = PackingRouteImport.update({
+  id: '/packing',
+  path: '/packing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MyTripsRoute = MyTripsRouteImport.update({
   id: '/my-trips',
   path: '/my-trips',
@@ -25,6 +59,11 @@ const MyTripsRoute = MyTripsRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandingRoute = LandingRouteImport.update({
+  id: '/landing',
+  path: '/landing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ItineraryBuilderRoute = ItineraryBuilderRouteImport.update({
@@ -37,6 +76,11 @@ const ItineraryRoute = ItineraryRouteImport.update({
   path: '/itinerary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InvoiceRoute = InvoiceRouteImport.update({
+  id: '/invoice',
+  path: '/invoice',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -47,6 +91,16 @@ const CreateTripRoute = CreateTripRouteImport.update({
   path: '/create-trip',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuildItineraryRoute = BuildItineraryRouteImport.update({
+  id: '/build-itinerary',
+  path: '/build-itinerary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,74 +109,172 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/build-itinerary': typeof BuildItineraryRoute
   '/create-trip': typeof CreateTripRoute
   '/dashboard': typeof DashboardRoute
+  '/invoice': typeof InvoiceRoute
   '/itinerary': typeof ItineraryRoute
   '/itinerary-builder': typeof ItineraryBuilderRoute
+  '/landing': typeof LandingRoute
   '/login': typeof LoginRoute
   '/my-trips': typeof MyTripsRoute
+  '/packing': typeof PackingRoute
+  '/profile': typeof ProfileRoute
+  '/register': typeof RegisterRoute
+  '/search': typeof SearchRoute
+  '/trips': typeof TripsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/build-itinerary': typeof BuildItineraryRoute
   '/create-trip': typeof CreateTripRoute
   '/dashboard': typeof DashboardRoute
+  '/invoice': typeof InvoiceRoute
   '/itinerary': typeof ItineraryRoute
   '/itinerary-builder': typeof ItineraryBuilderRoute
+  '/landing': typeof LandingRoute
   '/login': typeof LoginRoute
   '/my-trips': typeof MyTripsRoute
+  '/packing': typeof PackingRoute
+  '/profile': typeof ProfileRoute
+  '/register': typeof RegisterRoute
+  '/search': typeof SearchRoute
+  '/trips': typeof TripsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/build-itinerary': typeof BuildItineraryRoute
   '/create-trip': typeof CreateTripRoute
   '/dashboard': typeof DashboardRoute
+  '/invoice': typeof InvoiceRoute
   '/itinerary': typeof ItineraryRoute
   '/itinerary-builder': typeof ItineraryBuilderRoute
+  '/landing': typeof LandingRoute
   '/login': typeof LoginRoute
   '/my-trips': typeof MyTripsRoute
+  '/packing': typeof PackingRoute
+  '/profile': typeof ProfileRoute
+  '/register': typeof RegisterRoute
+  '/search': typeof SearchRoute
+  '/trips': typeof TripsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
+    | '/build-itinerary'
     | '/create-trip'
     | '/dashboard'
+    | '/invoice'
     | '/itinerary'
     | '/itinerary-builder'
+    | '/landing'
     | '/login'
     | '/my-trips'
+    | '/packing'
+    | '/profile'
+    | '/register'
+    | '/search'
+    | '/trips'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
+    | '/build-itinerary'
     | '/create-trip'
     | '/dashboard'
+    | '/invoice'
     | '/itinerary'
     | '/itinerary-builder'
+    | '/landing'
     | '/login'
     | '/my-trips'
+    | '/packing'
+    | '/profile'
+    | '/register'
+    | '/search'
+    | '/trips'
   id:
     | '__root__'
     | '/'
+    | '/admin'
+    | '/build-itinerary'
     | '/create-trip'
     | '/dashboard'
+    | '/invoice'
     | '/itinerary'
     | '/itinerary-builder'
+    | '/landing'
     | '/login'
     | '/my-trips'
+    | '/packing'
+    | '/profile'
+    | '/register'
+    | '/search'
+    | '/trips'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  BuildItineraryRoute: typeof BuildItineraryRoute
   CreateTripRoute: typeof CreateTripRoute
   DashboardRoute: typeof DashboardRoute
+  InvoiceRoute: typeof InvoiceRoute
   ItineraryRoute: typeof ItineraryRoute
   ItineraryBuilderRoute: typeof ItineraryBuilderRoute
+  LandingRoute: typeof LandingRoute
   LoginRoute: typeof LoginRoute
   MyTripsRoute: typeof MyTripsRoute
+  PackingRoute: typeof PackingRoute
+  ProfileRoute: typeof ProfileRoute
+  RegisterRoute: typeof RegisterRoute
+  SearchRoute: typeof SearchRoute
+  TripsRoute: typeof TripsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/trips': {
+      id: '/trips'
+      path: '/trips'
+      fullPath: '/trips'
+      preLoaderRoute: typeof TripsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packing': {
+      id: '/packing'
+      path: '/packing'
+      fullPath: '/packing'
+      preLoaderRoute: typeof PackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/my-trips': {
       id: '/my-trips'
       path: '/my-trips'
@@ -135,6 +287,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/landing': {
+      id: '/landing'
+      path: '/landing'
+      fullPath: '/landing'
+      preLoaderRoute: typeof LandingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/itinerary-builder': {
@@ -151,6 +310,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ItineraryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/invoice': {
+      id: '/invoice'
+      path: '/invoice'
+      fullPath: '/invoice'
+      preLoaderRoute: typeof InvoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -165,6 +331,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreateTripRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/build-itinerary': {
+      id: '/build-itinerary'
+      path: '/build-itinerary'
+      fullPath: '/build-itinerary'
+      preLoaderRoute: typeof BuildItineraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,13 +357,32 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  BuildItineraryRoute: BuildItineraryRoute,
   CreateTripRoute: CreateTripRoute,
   DashboardRoute: DashboardRoute,
+  InvoiceRoute: InvoiceRoute,
   ItineraryRoute: ItineraryRoute,
   ItineraryBuilderRoute: ItineraryBuilderRoute,
+  LandingRoute: LandingRoute,
   LoginRoute: LoginRoute,
   MyTripsRoute: MyTripsRoute,
+  PackingRoute: PackingRoute,
+  ProfileRoute: ProfileRoute,
+  RegisterRoute: RegisterRoute,
+  SearchRoute: SearchRoute,
+  TripsRoute: TripsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

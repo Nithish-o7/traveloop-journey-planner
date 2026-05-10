@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const navItems = [
-  { to: "/dashboard", label: "Dashboard" },
-  { to: "/my-trips", label: "My Trips" },
+  { to: "/landing", label: "Explore" },
+  { to: "/trips", label: "My Trips" },
   { to: "/create-trip", label: "Plan Trip" },
+  { to: "/search", label: "Search" },
+  { to: "/packing", label: "Packing" },
 ];
 
 export function TopNav() {
@@ -81,6 +83,12 @@ export function TopNav() {
               className="px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted transition-colors flex items-center gap-2"
             >
               <User className="h-4 w-4" /> Profile
+            </Link>
+            <Link to="/admin" onClick={() => setOpen(false)} className="px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted transition-colors">
+              Admin Panel
+            </Link>
+            <Link to="/invoice" onClick={() => setOpen(false)} className="px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted transition-colors">
+              Invoice
             </Link>
             <Link to="/login" onClick={() => setOpen(false)} className="mt-2">
               <Button variant="outline" className="w-full">Sign Out</Button>
